@@ -1,0 +1,42 @@
+CorporaOS
+===========
+
+Getting started
+---------------
+
+To get started with Android, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+
+To initialize the CorporaOS sources locally, use a command like this:
+```
+repo init -u https://github.com/CorporaOS/android_manifest -b venture --git-lfs
+```
+Then to sync up:
+```
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+```
+
+Building
+-------------------
+Export your device codename with CORPORA_BUILD
+
+```export
+export CORPORA_BUILD="codename"
+```
+
+Prepare the ROM environment with the envsetup.sh script.
+
+```bash
+. build/envsetup.sh
+```
+
+Run the lunch command for your device after cloning all necessary device sources.
+
+```bash
+lunch corpora_codename-ap3a-buildtype
+```
+
+Start compilation
+
+```bash
+mka bacon
+```
